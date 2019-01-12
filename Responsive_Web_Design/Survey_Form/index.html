@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Page Title</title>
+	<title>Survey Form - Phone Review</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 <body>
 	<header>
@@ -13,51 +13,67 @@
 	</header>
 
 	<main>
-		<h1 id="title">Survey Form</h1>
+		<h1 id="title">Review Your Phone</h1>
 		<div class="form-container">
-			<p id="description">
-				description goes here
-			</p>
+			<h4 id="description">
+				Please let us know how you like your new phone.
+			</h4>
 			<form action="" id="survey-form">
-				<label for="name" id="name-label" aria-required="true">*Name</label>
-				<input type="text" name="name" id="name" placeholder="name" required>
+				<div>
+					<h5>Add personal information</h5>
+					<label for="name" id="name-label" aria-required="true">*Name</label>
+					<input type="text" name="name" id="name" placeholder="name" required>
+	
+					<label for="email" id="email-label" aria-required="true">*Email</label>
+					<input type="email" name="email" id="email" placeholder="email" required>
+				</div>
+				
+				<div>
+					<h5>Please rate your phone from 1 to 10</h5>
+					<label for="number" id="number-label" aria-required="true" required>*Rating</label>
+					<input type="number" name="number" id="number" min="1" max="10" placeholder="quantity">
+				</div>
 
-				<label for="email" id="email-label" aria-required="true">*Email</label>
-				<input type="email" name="email" id="email" placeholder="email" required>
+				<div>
+					<h5>Phone Information</h5>
+					<div>
+						<label for="dropdown">color</label>
+						<select name="dropdown" id="dropdown">
+							<option value="black">black</option>
+							<option value="white">white</option>
+							<option value="silver">silver</option>
+						</select>
+					</div>
 
-				<label for="number" id="number-label" aria-required="true" required>*Quantity</label>
-				<input type="number" name="number" id="number" min="1" max="10" placeholder="quantity">
+					<div>
+						<input type="radio" name="size" value="128" id="128"><label for="128">128</label>
+						<input type="radio" name="size" value="64" id="64"><label for="64">64</label>
+						<input type="radio" name="size" value="32" id="32"><label for="32">32</label>
+					</div>
+				</div>
+				
+				<div>
+					<h5>Did you buy anything else with your phone?</h5>
+					<input type="checkbox" id="cover" name="cover" value="cover">
+					<label for="cover">Cover</label>
+					<input type="checkbox" id="screen-protector" name="screen-protector" value="screen-protector">
+					<label for="screen-protector">Screen Protector</label>
+					<input type="checkbox" id="extra-battery" name="extra-battery" value="extra-battery">
+					<label for="extra-battery">Extra Battery</label>
+					<input type="checkbox" id="wireless-charger" name="wireless-charger" value="wireless-charger">
+					<label for="wireless-charger">Wireless Charger</label>
+				</div>
 
-				<label for="dropdown">Color</label>
-				<select name="dropdown" id="dropdown">
-					<option value="black">black</option>
-					<option value="white">white</option>
-					<option value="silver">silver</option>
-				</select>
+				<div>
+					<label for="comment"> comment: </label>
+					<textarea id="comment" name="user_comment">Comments</textarea>
+				</div>
 
+				<div><button id="submit" type="submit">Submit</button></div>
 		
-				<input type="radio" name="size" value="128" id="128"><label for="128">128</label>
-				<input type="radio" name="size" value="64" id="64"><label for="64">64</label>
-				<input type="radio" name="size" value="32" id="32"><label for="32">32</label>
-
-				<input type="checkbox" id="cover" name="cover" value="cover">
-				<label for="cover">Cover</label>
-				<input type="checkbox" id="screen-protector" name="screen-protector" value="screen-protector">
-				<label for="screen-protector">Screen Protector</label>
-				<input type="checkbox" id="extra-battery" name="extra-battery" value="extra-battery">
-				<label for="extra-battery">Extra Battery</label>
-				<input type="checkbox" id="wireless-charger" name="wireless-charger" value="wireless-charger">
-				<label for="wireless-charger">Wireless Charger</label>
-
-				<label for="comment"> comment: </label>
-				<textarea id="comment" name="user_comment">Comments</textarea>
-				
-				<button id="submit" type="submit">Submit</button>
-				
+							
 			</form>
-
 		</div>
-
 	</main>
 
 	<footer>
