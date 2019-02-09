@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+
+  body {
+      font-size: 1.6rem;
+      color: #666;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .header {
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      border-bottom: rgb(83, 83, 83) solid 1px;
+  }
+
+.logo {
+    margin-top: 2rem;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin-right: 2rem;
+}
+
+.nav-bar ul li {
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    display: inline-block;
+}
+
+  .main {
+      margin-top: 120px; /* Add a top margin to avoid content overlay */
+  }
