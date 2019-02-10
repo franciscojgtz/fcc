@@ -12,6 +12,10 @@ html {
     box-sizing: inherit;
   }
 
+  h3 {
+    font-size: 2rem;
+  }
+
   .header {
       overflow: hidden;
       position: fixed;
@@ -42,3 +46,31 @@ html {
   .main {
       margin-top: 120px; /* Add a top margin to avoid content overlay */
   }
+
+  .info {
+    width: 100%;
+    margin: 10rem auto;
+    max-width: 1024px;
+  }
+
+  .info ul {
+      list-style-type: none;
+      padding: 2rem;
+  }
+  
+  .info-list {
+    display: flex;
+    width: 100%;
+    
+  }
+
+  .info-list div {
+    padding: 2rem;
+  }
+
+  .info-icon {
+      font-size: 10rem;
+      color: #0255A5;
+      padding: 2rem;
+  }
+
