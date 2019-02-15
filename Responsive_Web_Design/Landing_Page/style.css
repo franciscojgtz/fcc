@@ -146,3 +146,17 @@ html {
     justify-self: end;
   }
 
+  footer {
+    padding: 2rem;
+    text-align: right;
+  }
+
+  .footer-links {
+    list-style-type: none;
+  }
+
+  .footer-links li {
+    display: inline-block;
+    padding: 1rem;
+  }
+
