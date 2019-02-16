@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Document</title>
+    <title>Soccer Academy</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -19,13 +19,18 @@
                 </div>
                 <nav id="nav-bar" class="nav-bar">
                     <ul>
-                        <li><a href="#" class="nav-link">one</a></li>
-                        <li><a href="#" class="nav-link">two</a></li>
-                        <li><a href="#" class="nav-link">three</a></li>
+                        <li><button class="menu-btn" onclick="document.getElementById('header').style.height == '200px' ? document.getElementById('header').style.height = '50px' : document.getElementById('header').style.height = '200px';">menu</button></li>
+                        <li><a href="#info" class="nav-link">info</a></li>
+                        <li><a href="#contact" class="nav-link">contact</a></li>
+                        <li><a href="#cost" class="nav-link">cost</a></li>
                     </ul>
                 </nav>
+
+                
         </div>  
     </header>
+
+    
     <main class="main">
         
         <section id="info" class="info">
@@ -58,16 +63,17 @@
                     </div>
                 </li>
             </ul>
-        </section>
-        <div class="contact">
+        </section>  
+
+        <div class="contact" id="contact">
             <section id="demo" class="demo">           
                 <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/M3QyrB-0-Ho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </section>
             <section class="form">
                 <h2>Get More Info</h2>
                 <form id="form" action="https://www.freecodecamp.com/email-submit" method="POST">
-                    <input type="email" id="email" placeholder="Enter your email address" required>
-                    <input type="submit" id="submit" value="register">
+                    <div><input type="email" id="email" name="email" placeholder="Enter your email address" required></div>
+                    <div><input type="submit" name="submit" id="submit" value="register"></div>
                 </form>
             </section>
         </div>

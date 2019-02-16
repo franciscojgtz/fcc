@@ -36,6 +36,7 @@ html {
     width: 100%;  
     background-color: #fff;
     border-bottom: rgb(83, 83, 83) solid 1px;
+    height: 50px;
   }
 
   .header-wrapper {
@@ -57,6 +58,8 @@ html {
     list-style-type: none;
     margin-right: 2rem;
     vertical-align: bottom;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav-bar ul li {
@@ -70,6 +73,16 @@ html {
   text-transform: uppercase;
   font-weight: 700;
   
+}
+
+.menu-btn {
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #0255A5;
+  cursor: pointer;
+  display: none;
 }
 
 .nav-bar a:hover {
@@ -153,6 +166,28 @@ html {
       max-width: calc(100% - 2rem) ;
       margin: 1rem;
     }
+
+    .nav-bar {
+      position: relative;
+    }
+
+    .nav-bar ul {
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      right: 100%;
+    }
+
+    .menu-btn {
+      display: block;
+    }
+
+  }
+
+  @media only screen and (min-width: 801px) { 
+    .header {
+      height: 50px!important;
+    }
   }
 
   .contact {
@@ -169,13 +204,35 @@ html {
     margin: 1rem 0;
   }
 
+  .form h2 {
+    margin-bottom: 1rem;
+  }
+
   .form {
     justify-self: end;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .form input[type="email"] {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .form input[type="submit"] {
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    background-color: #8C7E44;;
+    color: #fff;
+    margin: 1rem;
   }
 
   footer {
     padding: 2rem;
     text-align: right;
+    line-height: 1.4rem;
+    font-size: 1.4rem;
   }
 
   .footer-links {
@@ -186,4 +243,6 @@ html {
     display: inline-block;
     padding: 1rem;
   }
+
+ 
 
