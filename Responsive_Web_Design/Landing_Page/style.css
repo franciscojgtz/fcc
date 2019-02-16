@@ -22,24 +22,39 @@ html {
     font-size: 2rem;
   }
 
+  a {
+    color: #0255A5;
+    text-decoration: none;
+  }
+
   .header {
     overflow: hidden;
     position: fixed;
     top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    width: 100%;  
     background-color: #fff;
     border-bottom: rgb(83, 83, 83) solid 1px;
   }
 
+  .header-wrapper {
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
 .logo {
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.nav-bar {
+  margin-top: 1rem;
 }
 
 .nav-bar ul {
     list-style-type: none;
     margin-right: 2rem;
+    vertical-align: bottom;
 }
 
 .nav-bar ul li {
@@ -47,6 +62,16 @@ html {
     margin: 0 auto;
     padding: 1rem;
     display: inline-block;
+}
+
+.nav-bar a {
+  text-transform: uppercase;
+  font-weight: 700;
+  
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
 }
 
   .main {
