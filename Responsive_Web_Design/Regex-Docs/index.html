@@ -5,33 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        code {
-            background-color: lightblue;
-        }
-
-        nav {
-            background-color: beige;
-        }
-        main {
-            background-color: pink;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
-    <nav id="navbar">
-        <header>
+    <nav id="navbar" class="nav">
+        <header class="navbar__header">
             <h1>JavaScript Regular Expressions</h1>
         </header>
-        <ul>
-            <li><a href="#What_are_Regular_Expressions" class="nav-link">What are Regular Expressions</a></li>
-            <li><a href="#Creating_a_Regular_Expression" class="nav-link">Creating a Regular Expression</a></li>
-            <li><a href="#Writing_a_Regular_Expression_Pattern" class="nav-link">Writing a Regular Expression Pattern</a></li>
-            <li><a href="#Working_with_Regular_Expressions" class="nav-link">Working with Regular Expressions</a></li>
-            <li><a href="#Resources" class="nav-link">Resources</a></li>
+        <ul class="menu navbar__list menu--vertical">
+            <li class="menu__li"><a href="#What_are_Regular_Expressions" class="nav-link">What are Regular Expressions</a></li>
+            <li class="menu__li"><a href="#Creating_a_Regular_Expression" class="nav-link">Creating a Regular Expression</a></li>
+            <li class="menu__li"><a href="#Writing_a_Regular_Expression_Pattern" class="nav-link">Writing a Regular Expression Pattern</a></li>
+            <li class="menu__li"><a href="#Working_with_Regular_Expressions" class="nav-link">Working with Regular Expressions</a></li>
+            <li class="menu__li menu__li--last"><a href="#Resources" class="nav-link">Resources</a></li>
         </ul>
     </nav>
-    <main id="main-doc">
+    <main id="main-doc" class="main">
         <section class="main-section" id="What_are_Regular_Expressions">
             <header><h2>What are Regular Expressions</h2></header>
             <p>Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular 
@@ -78,9 +68,9 @@
                  <p>
                      <pre>
                          <code>
-                            function escapeRegExp(string) {
-                                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-                            }
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
                          </code>
                      </pre>
                  </p>
