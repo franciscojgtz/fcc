@@ -5,51 +5,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        code {
+            background-color: lightblue;
+        }
+
+        nav {
+            background-color: beige;
+        }
+        main {
+            background-color: pink;
+        }
+    </style>
 </head>
 <body>
     <nav id="navbar">
         <header>
-            <ul>
-                <li><a href="" class="nav-link"></a></li>
-                <li><a href="" class="nav-link"></a></li>
-                <li><a href="" class="nav-link"></a></li>
-                <li><a href="" class="nav-link"></a></li>
-                <li><a href="" class="nav-link"></a></li>
-            </ul>
+            <h1>JavaScript Regular Expressions</h1>
         </header>
+        <ul>
+            <li><a href="#What_are_Regular_Expressions" class="nav-link">What are Regular Expressions</a></li>
+            <li><a href="#Creating_a_Regular_Expression" class="nav-link">Creating a Regular Expression</a></li>
+            <li><a href="#Writing_a_Regular_Expression_Pattern" class="nav-link">Writing a Regular Expression Pattern</a></li>
+            <li><a href="#Working_with_Regular_Expressions" class="nav-link">Working with Regular Expressions</a></li>
+            <li><a href="#Resources" class="nav-link">Resources</a></li>
+        </ul>
     </nav>
     <main id="main-doc">
-        <section class="main-section" id="">
-            <header></header>
-            <p><code></code></p>
-            <p></p>
+        <section class="main-section" id="What_are_Regular_Expressions">
+            <header><h2>What are Regular Expressions</h2></header>
+            <p>Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular 
+                expressions are also objects. These patterns are used with the <code>exec</code> and <code>test</code> methods of <code>RegExp</code>, and with the 
+                <code>match</code>, <code>replace</code>, <code>search</code>, and <code>split</code> methods of <code>String</code>. 
+                This chapter describes JavaScript regular expressions.</p>
+        </section>
+        <section class="main-section" id="Creating_a_Regular_Expression">
+            <header><h2>Creating a Regular Expression</h2></header>
+            <p>You construct a regular expression in one of two ways:</p>
+            <p>Using a regular expression literal, which consists of a pattern enclosed between slashes, as follows:</p>
+            <p><code>var re = /ab+c/;</code></p>
+            <p>Regular expression literals provide compilation of the regular expression when the script is loaded. 
+                If the regular expression remains constant, using this can improve performance.</p>
+            <p>Or calling the constructor function of the <code>RegExp</code> object, as follows:</p>
+            <p><code>var re = new RegExp('ab+c');</code></p>
+            <p>Using the constructor function provides runtime compilation of the regular expression. Use the constructor 
+                function when you know the regular expression pattern will be changing, or you don't know the pattern and are 
+                getting it from another source, such as user input.</p>
+        </section>
+        <section class="main-section" id="Writing_a_Regular_Expression_Pattern">
+            <header><h2>Writing a Regular Expression Pattern</h2></header>
+            <p>A regular expression pattern is composed of simple characters, such as <code>/abc/</code>, or a combination of simple and 
+                special characters, such as <code>/ab*c/</code> or <code>/Chapter (\d+)\.\d*/</code>. The last example includes parentheses which are used as a 
+                memory device. The match made with this part of the pattern is remembered for later use, as described in 
+                <a href="#Using_Parenthesized_substring_matches">Using parenthesized substring matches.</a></p>
+                <h3 id="Using_Simple_Patterns"> Using simple patterns</h3>
+                <p>Simple patterns are constructed of characters for which you want to find a direct match. For example, the pattern <code>/abc/</code> matches character
+                     combinations in strings only when exactly the characters 'abc' occur together and in that order. Such a match would succeed in the 
+                     strings "Hi, do you know your abc's?" and "The latest airplane designs evolved from slabcraft." In both cases the match is with the 
+                     substring 'abc'. There is no match in the string 'Grab crab' because while it contains the substring 'ab c', it does not contain the 
+                     exact substring 'abc'.</p>
+                <h3 id="Using_Special_Characters">Using special characters</h3>
+                <p>
+                    When the search for a match requires something more than a direct match, such as finding one or more b's, or finding white space, 
+                    the pattern includes special characters. For example, the pattern <code>/ab*c/</code> matches any character combination in which a single 
+                    'a' is followed by zero or more 'b's <code>(*</code> means 0 or more occurrences of the preceding item) and then immediately followed by 'c'. 
+                    In the string "cbbabbbbcdebc," the pattern matches the substring 'abbbbc'.
+                </p>
+                 <p>
+                    Escaping user input that is to be treated as a literal string within a regular expression—that would otherwise be 
+                    mistaken for a special character—can be accomplished by simple replacement:
+                 </p>
+                 <p>
+                     <pre>
+                         <code>
+                            function escapeRegExp(string) {
+                                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+                            }
+                         </code>
+                     </pre>
+                 </p>
+                 <p>
+                    The g after the regular expression is an option or flag that performs a global search, looking in the whole string and returning 
+                    all matches. It is explained in detail below in 
+                    <a href="Advanced_Searching_With_Flags">Advanced Searching With Flags</a>.
+                 </p>
+                 <h3 id="Using_Parentheses">Using Parentheses</h3>   
+                 <p>
+                    Parentheses around any part of the regular expression pattern causes that part of the matched substring to be remembered. 
+                    Once remembered, the substring can be recalled for other use, as described in 
+                    <a href="#Using_Parenthesized_Substring_Matches">Using Parenthesized Substring Matches</a>.
+                 </p>
+                 <p>
+                    For example, the pattern <code>/Chapter (\d+)\.\d*/</code> illustrates additional escaped and special characters and indicates that part 
+                    of the pattern should be remembered. It matches precisely the characters 'Chapter ' followed by one or more numeric characters 
+                    (<code>\d</code> means any numeric character and <code>+</code> means 1 or more times), followed by a decimal point (which in itself is a special character; 
+                    preceding the decimal point with \ means the pattern must look for the literal character '.'), followed by any numeric character 
+                    0 or more times (<code>\d</code> means numeric character, <code>*</code> means 0 or more times). In addition, parentheses are used to remember the first 
+                    matched numeric characters.
+                 </p>
+                 <p>
+                    This pattern is found in "Open Chapter 4.3, paragraph 6" and '4' is remembered. The pattern is not found in "Chapter 3 and 4", because that 
+                    string does not have a period after the '3'.   
+                 </p>
+                 <p>
+                    To match a substring without causing the matched part to be remembered, within the parentheses preface the pattern with <code>?:</code>. For example, <code>(?:\d+)</code> 
+                    matches one or more numeric characters but does not remember the matched characters.
+                 </p>
+        </section>
+        <section class="main-section" id="Working_with_Regular_Expressions">
+            <header><h2 >Working with Regular Expressions</h2></header>
+            <p>
+                Regular expressions are used with the <code>RegExp</code> methods <code>test</code> and <code>exec</code> and with the <code>String</code> methods <code>match</code>, <code>replace</code>, <code>search</code>, 
+                and <code>split</code>. These methods are explained in detail in the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">JavaScript reference</a>.  
+            </p>
+            <p>
+                When you want to know whether a pattern is found in a string, use the <code>test</code> or <code>search</code> method; for more information (but slower execution) 
+                use the <code>exec</code> or <code>match</code> methods. If you use <code>exec</code> or<code> match</code> and if the match succeeds, these methods return an array and update properties 
+                of the associated regular expression object and also of the predefined regular expression object, <code>RegExp</code>. If the match fails, the <code>exec</code> method 
+                returns <code>null</code> (which coerces to <code>false</code>).
+            </p>
+            <p>
+                In the following example, the script uses the exec method to find a match in a string.
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var myRe = /d(b+)d/g;
+                        var myArray = myRe.exec('cdbbdbsbz');
+                    </code>
+                </pre>
+            </p>
+            <p>
+                If you do not need to access the properties of the regular expression, an alternative way of creating myArray is with this script
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var myArray = /d(b+)d/g.exec('cdbbdbsbz'); 
+                        // similar to "cdbbdbsbz".match(/d(b+)d/g); however,
+                        // "cdbbdbsbz".match(/d(b+)d/g) outputs Array [ "dbbd" ], while 
+                        // /d(b+)d/g.exec('cdbbdbsbz') outputs Array [ 'dbbd', 'bb', index: 1, input: 'cdbbdbsbz' ].
+                    </code>
+                </pre>
+            </p>
+            <p>
+                If you want to construct the regular expression from a string, yet another alternative is this script:
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var myRe = new RegExp('d(b+)d', 'g');
+                        var myArray = myRe.exec('cdbbdbsbz');
+                    </code>
+                </pre>
+            </p>
+            <p>
+                As shown in the second form of this example, you can use a regular expression created with an object initializer without 
+                assigning it to a variable. If you do, however, every occurrence is a new regular expression. For this reason, if you use 
+                this form without assigning it to a variable, you cannot subsequently access the properties of that regular expression. 
+                For example, assume you have this script:
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var myRe = /d(b+)d/g;
+                        var myArray = myRe.exec('cdbbdbsbz');
+                        console.log('The value of lastIndex is ' + myRe.lastIndex);
+                        
+                        // "The value of lastIndex is 5"
+                    </code>
+                </pre>
+            </p>
+            <p>
+                However, if you have this script:
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var myArray = /d(b+)d/g.exec('cdbbdbsbz');
+                        console.log('The value of lastIndex is ' + /d(b+)d/g.lastIndex);
+                        
+                        // "The value of lastIndex is 0"   
+                    </code>
+                </pre>
+            </p>
+            <p>
+                The occurrences of <code>/d(b+)d/g</code> in the two statements are different regular expression objects and hence have 
+                different values for their <code>lastIndex</code> property. If you need to access the properties of a regular expression 
+                created with an object initializer, you should first assign it to a variable.    
+            </p>
+            <h3 id="Using_Parenthesized_Substring_Matches">Using Parenthesized Substring Matches</h3>
+            <p>
+                Including parentheses in a regular expression pattern causes the corresponding submatch to be 
+                remembered. For example, <code>/a(b)c/</code> matches the characters 'abc' and remembers 'b'. To recall these 
+                parenthesized substring matches, use the <code>Array</code> elements <code>[1]</code>, ..., <code>[n]</code>.    
+            </p>
+            <p>
+                The number of possible parenthesized substrings is unlimited. The returned array holds all that were found. 
+                The following examples illustrate how to use parenthesized substring matches.   
+            </p>
+            <p>
+                The following script uses the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace()</a> 
+                method to switch the words in the string. For the replacement text, 
+                the script uses the <code>$1</code> and <code>$2</code> in the replacement to denote the first and second parenthesized substring matches.   
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = /(\w+)\s(\w+)/;
+                        var str = 'John Smith';
+                        var newstr = str.replace(re, '$2, $1');
+                        console.log(newstr);
+                        
+                        // "Smith, John"     
+                    </code>
+                </pre>
+            </p>
+            <h3 id="Advanced_Searching_With_Flags">Advanced Searching with Flags</h3>
+            <p>
+                Regular expressions have six optional flags that allow for functionality like global and case insensitive searching. 
+                These flags can be used separately or together in any order, and are included as part of the regular expression.   
+            </p>
+            <p>
+                To include a flag with the regular expression, use this syntax:
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = /pattern/flags;
+                    </code>
+                </pre>
+            </p>
+            <p>
+                or
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = new RegExp('pattern', 'flags');
+                    </code>
+                </pre>
+            </p>
+            <p>
+                Note that the flags are an integral part of a regular expression. They cannot be added or removed later.    
+            </p>
+            <p>
+                For example, <code>re = /\w+\s/g</code> creates a regular expression that looks for one or more characters followed 
+                by a space, and it looks for this combination throughout the string.    
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = /\w+\s/g;
+                        var str = 'fee fi fo fum';
+                        var myArray = str.match(re);
+                        console.log(myArray);
+                        
+                        // ["fee ", "fi ", "fo "]    
+                    </code>
+                </pre>
+            </p>
+            <p>
+                You could replace the line:    
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = /\w+\s/g;     
+                    </code>
+                </pre>
+            </p>
+            <p>
+                with:
+            </p>
+            <p>
+                <pre>
+                    <code>
+                        var re = new RegExp('\\w+\\s', 'g');
+                    </code>
+                </pre>
+            </p>
+            <p>
+                and get the same result.
+            </p>
+            <p>
+                The behavior associated with the <code>'g'</code> flag is different when the <code>.exec()</code> method is used.  
+                (The roles of "class" and "argument" get reversed: In the case of <code>.match()</code>, the string 
+                class (or data type) owns the method and the regular expression is just an argument, while 
+                in the case of <code>.exec()</code>, it is the regular expression that owns the method, with the string 
+                being the argument.  Contrast <code>str.match(re)</code> versus <code>re.exec(str)</code>.)  The '<code>g</code>' flag is used 
+                with the <code>.exec()</code> method to get iterative progression.
+            </p>
+            <p>
+                The <code>m</code> flag is used to specify that a multiline input string should be treated as multiple lines. If the m flag is used, 
+                <code>^</code> and <code>$</code> match at the start or end of any line within the input string instead of the start or end of the entire string.
+            </p>
+        </section>
+        <section class="main-section" id="Resources">
+            <header><h2>Resources</h2></header>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular Expressions</a></li>
+                <li><a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">JavaScript RegExp Reference</a></li>
+                <li><a href="https://www.regular-expressions.info/javascript.html">Regular-Expressions.info</a></li>
+                <li><a href="https://regex101.com/">Regular Expressions 101</a></li>
+                <li><a href="https://www.regextester.com/">RegEx Testing</a></li>
             </ul>
-        </section>
-        <section class="main-section" id="">
-            <header></header>
-            <p><code></code></p>
-            <p></p>
-        </section>
-        <section class="main-section" id="">
-            <header></header>
-            <p><code></code></p>
-            <p></p>
-        </section>
-        <section class="main-section" id="">
-            <header></header>
-            <p><code></code></p>
-            <p></p>
-        </section>
-        <section class="main-section" id="">
-            <header></header>
-            <p><code></code></p>
-            <p></p>
         </section>
     </main>
 </body>
