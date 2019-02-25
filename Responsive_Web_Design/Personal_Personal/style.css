@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+    font-size: 63.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    height: 3000px;
+}
+
+.nav {
+    background-color: blue;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
