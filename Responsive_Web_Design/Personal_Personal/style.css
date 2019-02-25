@@ -10,12 +10,58 @@ html {
 body {
     font-size: 1.6rem;
     height: 3000px;
+    width: 100%;
 }
 
 .nav {
-    background-color: blue;
-    height: 100px;
+    background-color: lightcyan;
     width: 100%;
     position: fixed;
     top: 0;
+}
+
+.main {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+.menu {
+    list-style-type: none;
+    text-align: right;
+}
+
+.menu__item {
+    display: inline-block;
+    padding: 1rem;
+    margin: 0 3rem;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    background-color: pink;
+}
+
+.work {
+    width: 100%;
+    background-color: lightcyan;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(60px, 1fr));
+    widows: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.project {
+    background-color: lightgrey;
 }
