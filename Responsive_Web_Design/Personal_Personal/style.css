@@ -13,6 +13,11 @@ body {
     width: 100%;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 .nav {
     background-color: lightcyan;
     width: 100%;
@@ -54,12 +59,29 @@ footer {
 }
 
 .projects {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    justify-content: center;
     grid-gap: 1rem;
     padding: 1rem;
 }
 
 .project {
     background-color: lightgrey;
+}
+
+.project__name {
+    text-align: center;
+}
+
+.show-all {
+    width: 100%;
+    text-align: center;
+}
+
+.show-all a {
+    border: 1px solid #000;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
 }
