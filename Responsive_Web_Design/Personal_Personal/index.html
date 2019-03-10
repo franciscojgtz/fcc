@@ -10,58 +10,67 @@
 </head>
 <body>
     <header>
-        <nav class="nav">
+        <nav class="nav" id="navbar">
             <ul class="menu">
-                <li class="menu__item"><a href="">About</a></li>
-                <li class="menu__item"><a href="">Work</a></li>
-                <li class="menu__item"><a href="">Contact</a></li>
+                <li class="menu__item"><a href="#welcome-section">About</a></li>
+                <li class="menu__item"><a href="#projects">Work</a></li>
+                <li class="menu__item"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main class="main">
-        <section class="welcome">
+        <section class="welcome" id="welcome-section">
             <div>
-                <p>
-                    Hey i'am Mimic.
-                </p>
-                <p>
-                    a web developer
+                <h1>
+                    Hey I'm Francisco.
+                </h1>
+                <p class="description">
+                    <span class="custom-underline">a web developer</span>
                 </p>
             </div>
         </section>
-        <section class="work">
-            <h2>These are some of my projects..</h2>
+        <section class="work" id="projects">
+            <h2 class="section__header" id="project-title">These are some of my projects..</h2>
             <div class="projects">
                 <div class="project">
-                    <img src="https://via.placeholder.com/400" class="project__img">
-                    <p class="project__name">Landing Page</p>
+                    <a href="">
+                        <img src="https://via.placeholder.com/400" class="project__img">
+                        <p class="project__name">Landing Page</p>
+                    </a>
                 </div>
                 <div class="project">
-                    <img src="https://via.placeholder.com/400" class="project__img">
-                    <p class="project__name">Survey Form</p>
+                    <a href="">
+                        <img src="https://via.placeholder.com/400" class="project__img">
+                        <p class="project__name">Survey Form</p>
+                    </a>
                 </div>
                 <div class="project">
-                    <img src="https://via.placeholder.com/400" class="project__img">
-                    <p class="project__name">Tribute Page</p>
+                    <a href="">
+                        <img src="https://via.placeholder.com/400" class="project__img">
+                        <p class="project__name">Tribute Page</p>
+                    </a>
                 </div>
                 <div class="project">
-                    <img src="https://via.placeholder.com/400" class="project__img">
-                    <p class="project__name">Documentation page</p>
+                    <a href="">
+                        <img src="https://via.placeholder.com/400" class="project__img">
+                        <p class="project__name">Documentation page</p>
+                    </a>
                 </div>
             </div>
             <p class="show-all"><a href="http://">Show All</a></p>
         </section>
-        <section>
-            <h2>Let's work together...</h2>
-            <p>How do you take your coffee?</p>
+        <section id="contact">
+            <h2 class="section__header">Let's work together...</h2>
             <div>
-                <div>GitHub</div>
-                <div>LinkedIn</div>
-                <div>Email</div>
+                <ul class="contact">
+                    <li class="contact__link" id="profile-link">GitHub</li>
+                    <li class="contact__link">LinkedIn</li>
+                    <li class="contact__link">Email</li>
+                </ul>
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>**This is just a fake portfolio.. All the projects and contact details given are not real..</p>
         <p>© Created for <a href="">Free Code Camp</a></p>
     </footer>

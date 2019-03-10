@@ -11,6 +11,7 @@ body {
     font-size: 1.6rem;
     height: 3000px;
     width: 100%;
+    font-family: Tahoma, sans-serif;
 }
 
 img {
@@ -19,11 +20,23 @@ img {
 }
 
 .nav {
-    background-color: lightcyan;
+    background-color: #000;
+    color: #fff;
     width: 100%;
     position: fixed;
     top: 0;
 }
+
+.nav a {
+    color: #fff;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    border-bottom: 2px solid orangered;
+}
+
 
 .main {
     width: 100%;
@@ -40,22 +53,33 @@ footer {
 
 .menu__item {
     display: inline-block;
-    padding: 1rem;
-    margin: 0 3rem;
+    padding: 0;
+    margin: 0 1rem;
 }
 
 .welcome {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 100vh;
     width: 100%;
-    background-color: pink;
+    background-color: #000;
+    color: #fff;
+}
+
+.description {
+    background-color: #fff;
+    color: #000;
+    padding: .5rem;
+    text-align: center;
 }
 
 .work {
     width: 100%;
-    background-color: lightcyan;
+    background-color: #fff;
+    color: #000;
+    margin: 10rem 0;
+    padding-top: 5rem;
 }
 
 .projects {
@@ -85,3 +109,87 @@ footer {
     padding: 1rem 2rem;
     border-radius: 0.5rem;
 }
+
+.section__header {
+    width: 100%;
+    text-align: center;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+}
+
+#contact {
+    padding-top: 5rem;
+}
+
+.contact__link {
+    background-color: lightgreen;
+    margin: 1rem;
+    border-radius: 100%;
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 10rem;
+}
+
+.footer {
+    text-align: center;
+}
+
+.custom-underline::after {
+    content: "";
+    position: absolute;
+  }
+  
+/*------------------------------------*/
+/*------ Basic Underline Styles ------*/
+/*------------------------------------*/
+
+.normal-underline,
+.custom-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.normal-underline,
+.normal-underline:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+  text-decoration: none;
+}
+
+.custom-underline::after {
+  content: "";
+  position: absolute;
+}
+
+
+/*--- description ---*/
+.description .custom-underline::after {
+    top: 100%;
+    height: 2px;
+    width: 0%;
+    left: 0;
+    background-color: rgba(12, 12, 12, 0.6);
+      transition: 0.5s ease all .3s;
+  }
+  
+  .description:hover .custom-underline::after {
+    width: 100%;
+      transition: 0.3s ease all;
+  }
