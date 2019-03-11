@@ -72,6 +72,7 @@ footer {
     color: #000;
     padding: .5rem;
     text-align: center;
+    z-index: 2;
 }
 
 .work {
@@ -123,11 +124,14 @@ footer {
 }
 
 #contact {
-    padding-top: 5rem;
+    padding: 5rem 0;
+    background-color: #000;
+    color: #fff;
 }
 
 .contact__link {
-    background-color: lightgreen;
+    background-color: #fff;
+    color: #000;
     margin: 1rem;
     border-radius: 100%;
     width: 10rem;
@@ -192,4 +196,12 @@ footer {
   .description:hover .custom-underline::after {
     width: 100%;
       transition: 0.3s ease all;
+  }
+
+  canvas {
+      position: relative;
+  }
+
+  .test {
+      position: absolute;
   }
