@@ -95,6 +95,7 @@ footer {
 .project {
     background-color: #e4e4e4;
     border-radius: 1rem;
+    border: #000 5px solid;
 }
 
 .project a {
