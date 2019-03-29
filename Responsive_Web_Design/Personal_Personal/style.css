@@ -231,3 +231,15 @@ footer {
   .test {
       position: absolute;
   }
+
+  /*-- Footer --*/
+  footer {
+      font-size: 1.4rem;
+      color: #666;
+      line-height: 0.8rem;
+  }
+
+  footer a {
+      color: #666;
+      text-decoration: none;
+  }
